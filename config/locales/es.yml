@@ -200,13 +200,13 @@ es:
     errors:
       <<: *errors
     models:
-      category: 'categoría'
+      service: 'servicio'
     attributes:
       admin:
         email: 'Correo'
         password: 'Contraseña'
         remember_me: 'Recordarme'
-      category:
+      service:
         name: 'nombre'
       comment:
         content: "Contenido"
@@ -215,16 +215,69 @@ es:
   admin:
     new:
       title: 'Registro'
-    category:
+    service:
       edit:
-        title: 'Editar categoría'
+        title: 'Editar servicio'
       new:
-        title: 'Nueva categoría'
+        title: 'Nuevo servicio'
       show:
         columns:
           name: 'Tipo'
           extras: 'Campos adicionales'
-        title: 'Categorías'
+        title: 'Servicios'
+
+  admins:
+    sessions:
+      new:
+        title: "Iniciar sesión"
+        submit: "Entrar"
+    design:
+      new_logo: "Agregar logo"
+    services:
+      index:
+        header: "Personalizar solicitudes de servicio"
+        page-description: "Personaliza el tipo de servicios y status con las cuales las solicitudes de servicio serán creados. Los usuarios
+                          seleccionarán las servicios al crear la solicitud de servicio."
+        services: "Servicios"
+        statuses: "Estatus actuales"
+        new_service: "Nuevo servicio"
+        new_status: "Nuevo estatus"
+        name: "Nombre"
+      new:
+        header: 'Nuevo servicio'
+        back: "Regresar al listado de servicios"
+      form:
+        name: 'Nombre'
+        message: "Mensaje"
+        which_status: "Estatus"
+        remove_message: "Borrar mensaje"
+        add_message: "Agregar mensaje"
+        save: "Guardar"
+      show:
+        header: "Servicio: %{service_name}"
+        edit: "Editar servicio"
+        additional_fields: "Campos adicionales"
+        back: "Regresar"
+    dashboards:
+      design:
+        header: "Diseño"
+        page-description: 'Personaliza el diseño de tu aplicación'
+    service_requests:
+      edit:
+        update_service_request: "Actualizar solicitud de servicio"
+        service: "Servicio"
+        status: "Estatus"
+        update: "Actualizar"
+        user_info: "Info del usuario"
+      index:
+        new_service_request: "Crear nueva solicitud"
+        search: "Buscar"
+    statuses:
+      new:
+        header: "Nuevo status"
+      edit:
+        header: 'Editar status'
+
   crud:
     destroy: 'Eliminar'
     edit: 'Editar'
@@ -234,4 +287,27 @@ es:
       prohibited: "%{number_of_errors} evitó que la operación se realizara."
   navigation:
     back: 'Regresar'
+  alerts:
+    destroy_confirmation: "¿Estás seguro de eliminar?"
+
+
+  flash:
+    service:
+      created: 'Servicio creada correctamente.'
+      updated: 'Servicio actualizada correctamente.'
+      destroyed: 'Servicio ha sido eliminada.'
+    status:
+      created: 'Estatus creado correctamente.'
+      updated: 'Estatus actualizado correctamente.'
+    admin:
+      updated: 'El perfil fue editado satisfactoriamente.'
+    logo:
+      created: 'Logo creado correctamente.'
+      updated: 'Logo actualizado correctamente.'
+      destroyed: 'Logo ha sigo eliminado.'
+
+  navbar:
+    admin:
+      design: "Diseño"
+
 

@@ -15,7 +15,7 @@ module ApplicationHelper
     { "data-longitude" => lng, "data-latitude" => lat }
   end
 
-  def default_report_data_position
+  def default_service_request_data_position
     { "data-longitude" => '17.065593', "data-latitude" => '-96.724253' }
   end
 
@@ -23,5 +23,29 @@ module ApplicationHelper
     options[:class] ||= "timeago"
     content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
   end
+
+  def flash_class(level)
+    case level
+      when :notice then "alert alert-info"
+      when :success then "alert alert-success"
+      when :error then "alert alert-danger"
+      when :alert then "alert alert-danger"
+    end
+  end
+
+  def current_theme
+    ApplicationSettings::CssTheme.get.name
+  end
+
+  def saving_spinner
+    content_tag :span, 'Guardando...', class: 'hide js-save-box loading'
+  end
+
+  def errors_on_resource_for_field(resource, field)
+    unless resource.errors[field].empty?
+      content_tag :div, resource.errors[field].join(', ').to_s, class: 'errors-form'
+    end
+  end
+
 
 end

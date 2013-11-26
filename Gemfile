@@ -8,12 +8,26 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'devise'
+gem 'devise', '2.2.4'
 gem 'nested_form'
 gem 'geocoder'
 gem "highcharts-rails", "~> 3.0.0"
 gem "font-awesome-rails"
 gem 'twitter'
+
+group :test do
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
+
+group :development,:test do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
 
 group :development do
   gem 'better_errors'
@@ -21,6 +35,10 @@ group :development do
   gem 'thin'
   gem 'debugger'
   gem 'letter_opener'
+  gem 'quiet_assets'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-pow'
 end
 
 group :production do
@@ -35,6 +53,7 @@ group :assets do
   gem 'haml-rails'
   gem 'compass-rails'
   gem "modular-scale", "~> 1.0.6"
+  gem 'bootstrap-sass', '~> 3.0.0.0.rc'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -58,3 +77,6 @@ gem 'newrelic_rpm'
 gem 'gravatar-ultimate'
 gem 'jquery-ui-rails'
 gem 'ransack'
+gem 'state_machine'
+gem 'figaro'
+gem 'active_model_serializers'

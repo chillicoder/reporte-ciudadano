@@ -1,0 +1,468 @@
+/***************************************************
+**  COMMON ELEMENTS
+***************************************************/
+.loading {
+  display: inline-block;
+  background: image-url('loader.gif') no-repeat center right;
+  padding-right: 20px;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  @extend .control-group;
+  @extend .error;
+}
+
+#error_explanation {
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 14px;
+    background-color: #f2dede;
+    color: #b94a48;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0px 15px;
+    color: #b94a48;
+  }
+}
+
+.rc-icon {
+  display: inline-block;
+  background: image-url('social-sprite.png') no-repeat;
+
+  &.i-facebook {
+    width: 10px;
+    height: 21px;
+    background-position: 0 0;
+  }
+
+  &.i-twitter {
+    width: 19px;
+    height: 16px;
+    background-position: -19px -2px;
+  }
+}
+
+.social-signup {
+  position: relative;
+  color: #fff;
+  width: 112px;
+  border-radius: 3px;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  padding: 10px;
+
+  &.social-signup-fb {
+    background-color: #3c5a97;
+  }
+
+  &.social-signup-tt {
+    background-color: #019ad2;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $gray-lighter;
+  }
+
+  .i-facebook {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+  }
+
+  .i-twitter {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+  }
+
+  .social-signup-text {
+    padding-left: 15px;
+    border-left: 1px solid rgba(34,34,34,0.18);
+    margin-left: 17px;
+    display: inline-block;
+  }
+}
+
+.other-logins {
+  .social-sign-in, .other-logins-registration {
+    display: inline-block;
+  }
+  .other-logins-registration {
+    margin-right: 24px;
+  }
+}
+
+
+/***************************************************
+**  HOME REPORT STATS
+***************************************************/
+.reports-stats {
+
+  .reports-stats-block {
+    padding: 30px;
+    text-align: center;
+    font-size: 4em;
+    line-height: 50px;
+    font-weight: bold;
+
+    &.mid {
+      border-left: 1px solid #DDD;
+      border-right: 1px solid #DDD;
+    }
+
+    .reports-stats-name {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+  }
+}
+
+
+/***************************************************
+**  BLOCK SUMMARY
+***************************************************/
+.blk-summary {
+  .blk-summary-title {
+    border-top: 1px solid #DDDDDD;
+    padding-top: 30px;
+  }
+}
+
+
+/***************************************************
+**  FILTERS
+***************************************************/
+.filters {
+  @include clearfix;
+  background: #FAFAFA;
+  border: 1px solid #e0e0e0;
+
+  .form-group {
+    padding: 10px;
+    &.form-group-separator {
+      border-right: 1px solid #EEE;
+    }
+  }
+
+}
+
+/***************************************************
+**  HOME REPORTS MAP
+***************************************************/
+
+.map {
+  min-height: 320px;
+
+  #reports-map {
+    width: 100%;
+    height: 400px;
+    display: block;
+  }
+}
+
+/***************************************************
+**  RECENT REPORTS LIST AT HOME
+***************************************************/
+.recent-report-sum {
+  background: $gray-lighter;
+  padding: 10px 10px 0px;
+  margin-bottom: 10px;
+  list-style: none;
+
+  .recent-report-title {
+    display: inline-block;
+  }
+
+  .recent-report-counter {
+    font-size: 30px;
+    text-align: center;
+  }
+
+}
+
+
+/***************************************************
+**  SHOW REPORT
+***************************************************/
+
+.report-show {
+
+  .report-show-title {
+    background-color: #FAFAFA;
+    height: 60px;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    margin: 0;
+  }
+  .report-show-map {
+    background-color: #CCCCCC;
+  }
+
+  .report-show-information {
+    padding: 20px;
+    background-color: #EEEEEE;
+  }
+
+}
+
+.stream {
+  padding-left: 100px;
+  padding-top: 40px;
+  position: relative;
+  margin-bottom: 50px;
+
+  &:before {
+    content: '';
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    background-color: #EEEEEE;
+    left: 48px;
+    top: 0;
+  }
+
+  .activity {
+    position: relative;
+    padding: 10px;
+    background-color: #EFEFEF;
+    @include box-shadow(1px 1px 0px #DDDDDD);
+    margin-bottom: 20px;
+    width: 75%;
+    z-index: 1000;
+    font-size: 18px;
+
+    &:before {
+      width: 20px;
+      height: 20px;
+      content: '';
+      background-color: $brand-info;
+      @include border-radius(50%);
+      display: block;
+      position: absolute;
+      left: -59px;
+      top: 10px;
+      z-index: 10;
+    }
+    &:after {
+      width: 55px;
+      height: 5px;
+      content: '';
+      background-color: #EEEEEE;
+      display: block;
+      position: absolute;
+      left: -55px;
+      top: 17px;
+      z-index: 0;
+    }
+
+    img.avatar {
+      width: 45px;
+      height: 45px;
+      border: 4px solid #FFF;
+      @include box-shadow(1px 1px 2px #DDDDDD);
+      position: absolute;
+      left: -75px;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .date {
+      position: absolute;
+      width: 30%;
+      right: -35%;
+      top: 5px;
+      height: 30px;
+      font-size: 16px;
+      line-height: 30px;
+      color: #666;
+      font-weight: normal;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+
+    &.description, &.comment {
+
+      p {
+        margin: 0 0 5px 0;
+      }
+      .name {
+        text-align: right;
+        font-size: 12px;
+        color: #000;
+        font-weight: bold;
+        margin: 0;
+        text-transform: uppercase;
+      }
+    }
+
+    &.comment {
+      .comment-img {
+        width: 100%;
+      }
+    }
+
+    &.form {
+      textarea {
+        width: 100%;
+        height: 90px;
+        border: none;
+        padding: 10px;
+        @include box-sizing(border-box);
+        margin-bottom: 5px;
+      }
+
+      input[type=file] {
+        font-size: 12px;
+      }
+    }
+
+    &.start {
+      background-color: $brand-info;
+      color: #FFF;
+      font-weight: bold;
+    }
+
+  }
+}
+
+
+/**************
+** Images container drag & drop
+***************/
+
+.image_uploader {
+  height: 100px;
+  width: 610px;
+  border: 2px dashed #ccc;
+  visibility: hidden;
+}
+
+.image_container {
+  border: 2px dashed #ccc;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .add_image {
+    font-size: 72px;
+    color: #999;
+    font-weight: bold;
+  }
+}
+
+.destroy_comment {
+  float: left;
+}
+
+
+/**************
+** Forms
+***************/
+.form-short-stacked {
+  max-width: 460px;
+  padding: 15px;
+  margin: 0 auto;
+  position: relative;
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 0px;
+
+    &.top-field {
+      margin-bottom: -1px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.bottom-field {
+      margin-bottom: 10px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &.one-field {
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+  }
+
+}
+
+.plain-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/**************
+** Reports
+***************/
+
+#new-report-map{
+  height: 320px;
+}
+
+.table-header {
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.image.tight img {
+  width: 100%
+}
+
+span.address {
+  font-size: 12px;
+}
+
+.info_window_image {
+  margin-right: 5px;
+  float: left;
+}
+
+.info_window_description {
+  margin-top: 5px;
+}
+
+.info_window_link {
+  display: block;
+}
+
+.errors-form {
+  background: $label-danger-bg;
+  color: $label-color;
+  font-size: $font-size-small;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: $border-radius-base;
+}

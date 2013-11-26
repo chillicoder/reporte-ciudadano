@@ -1,0 +1,38 @@
+.content-header
+  %h1= t('.header')
+
+.page-content.inset
+
+  .page-description
+    %blockquote
+      %i= t('.page-description')
+
+.dashboard-entity
+  %header.dashboard-entity-header
+    %h2
+      = t('.logos')
+    .dashboard-entity-header-tools
+      = link_to new_admins_logo_path, class: 'btn btn-primary btn-xs', id: 'new-logo-btn' do
+        %span.glyphicon.glyphicon-plus
+      %small.dashboard-entity-help
+        Arrastra los logos para determinar su posición
+
+  .dashboard-entity-content
+    - unless @logos.empty?
+      %ul.plain-ul.l-grid.clearfix.js-sortable{data: {url: rearrange_admins_logos_path}}
+        - @logos.each do |logo|
+          %li{id: "logo_#{logo.id}", class: 'l-grid-el'}
+            = link_to edit_admins_logo_path(logo), class: 'thumbnail' do
+              = image_tag logo.image.footer_thumb.url
+    - else
+      %p No hay logos
+
+%h2 Color scheme
+= form_for ApplicationSettings::CssTheme.get, url: css_theme_admins_application_settings_path(@default_css_theme, format: :json), remote: true, as: :setting do |f|
+  .row
+    - ApplicationSettings::CssTheme::THEMES.each do |theme|
+      .col-md-3
+        = f.label "name_#{theme}", class: 'text-center l-margin-l-bottom'  do
+          = image_tag "themes/#{theme}.png", class: 'l-margin-s-bottom l-blocky'
+          = f.radio_button :name, theme, class: 'js-form-submitter'
+          = saving_spinner
